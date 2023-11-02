@@ -1,0 +1,48 @@
+import java.util.Scanner;
+public class odeforces_26A {
+    public static int prime(int n)
+    {
+        for(int i=2;i<(n/2)+1;i++)
+        {
+            if(n%i==0)
+            return 0;
+        }
+        return 1;
+    }
+    public static int primefactors(int n)
+    {
+        int count=0;
+        for(int i=2;i<=n;i++)
+        {
+            if(n%i==0)
+            {
+            if(prime(i)==1)
+            count++;
+            }
+        }
+        return count;
+    }
+    public static int factors(int n)
+    {
+        int count=0;
+        for(int i=2;i<=n;i++)
+        {
+                if(primefactors(i)==2)
+                count++;
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        if(n==1)
+        System.out.println("0");
+        else
+        {
+            int count=factors(n);
+            System.out.println(count);
+        }
+
+    }    
+}
